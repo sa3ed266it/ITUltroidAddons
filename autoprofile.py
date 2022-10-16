@@ -82,8 +82,7 @@ async def autoname_(event):
         if not getn:
             return
         BIOMSG = random.choice(BIOS)
-        DM = time.strftime("%d-%m-%y")
-        HM = time.strftime("%H:%M")
+        HM = time.strftime("%I:%M")
         for normal in HM:
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
