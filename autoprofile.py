@@ -32,6 +32,7 @@ from . import *
 CHANGE_TIME = int(udB.get_key("CHANGE_TIME")) if udB.get_key("CHANGE_TIME") else 60
 
 RR7PP = udB.get_key("TI_EM") or "•"
+RR7PB = udB.get_key("BI_EM") or "|"
 
 normzltext = "0123456789"
 namerzfont = udB.get_key("TI_IT") or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
@@ -83,10 +84,14 @@ async def autoname_(event):
         BIOMSG = random.choice(BIOS)
         DM = time.strftime("%d-%m-%y")
         HM = time.strftime("%H:%M")
-        name = f"📅{DM} | {BIOMSG} | ⌚️{HM}"
+        for normal in HM:
+            if normal in normzltext:
+                namefont = namerzfont[normzltext.index(normal)]
+                HM = HM.replace(normal, namefont)
+        name = f"{HM} {RR7PB}"
         await event.client(
             UpdateProfileRequest(
                 about=name,
             )
         )
-        await asyncio.sleep(1111)
+        await asyncio.sleep(CHANGE_TIME)
