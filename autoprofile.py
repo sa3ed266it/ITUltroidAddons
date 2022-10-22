@@ -42,10 +42,10 @@ async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "stop":
         udB.del_key("AUTONAME")
-        await event.eor("• تم تعطيل الساعه ✓")
+        await event.eor("`• AUTONAME has been Stopped !`")
         return
     udB.set_key("AUTONAME", "True")
-    await eod(event, "• تم تفعيل الساعه ✓")
+    await eod(event, "`• Started AUTONAME`")
     while True:
         getn = udB.get_key("AUTONAME")
         if not getn:
@@ -66,10 +66,10 @@ async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "stop":
         udB.del_key("AUTOBIO")
-        await event.eor("• تم تعطيل ساعه البايو ✓")
+        await event.eor("`• AUTOBIO has been Stopped !`")
         return
     udB.set_key("AUTOBIO", "True")
-    await eod(event, "• تم تفعيل ساعه البايو ✓")
+    await eod(event, "`• Started AUTOBIO`")
     BIOS = [
         "Busy Today !",
         "ULTROID USER",
