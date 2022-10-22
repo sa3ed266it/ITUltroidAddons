@@ -11,16 +11,16 @@
 ✘ Commands Available -
 
 • `{i}تفعيل الساعه`
-   `لبدء الساعه.`
+   لبدء الساعه .
 
 • `{i}تعطيل الساعه`
-   `لايقاف الساعه.`
+   لايقاف الساعه .
 
 • `{i}تفعيل البايو`
-   `لبدء ساعه البايو.`
+   لبدء ساعه البايو .
 
 • `{i}تعطيل البايو`
-   `لايقاف ساعه البايو.`
+   لايقاف ساعه البايو .
 """
 
 import random
@@ -66,10 +66,10 @@ async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "تعطيل":
         udB.del_key("AUTOBIO")
-        await event.eor("`• تم تعطيل ساعه البايو ✓`")
+        await event.eor("• تم تعطيل ساعه البايو ✓")
         return
     udB.set_key("AUTOBIO", "True")
-    await eod(event, "`• تم تفعيل ساعه البايو ✓`")
+    await eod(event, "• تم تفعيل ساعه البايو ✓")
     BIOS = [
         "Busy Today !",
         "ULTROID USER",
