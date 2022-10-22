@@ -37,7 +37,7 @@ RR7PB = udB.get_key("TI_EMJ") or "|"
 normzltext = "0123456789"
 namerzfont = udB.get_key("TI_IT") or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
-@ultroid_cmd(pattern="(تفعيل|تعطيل)الساعه$")
+@ultroid_cmd(pattern="(تفعيل|تعطيل) الساعه$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "تعطيل":
