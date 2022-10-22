@@ -10,17 +10,17 @@
 """
 ✘ Commands Available -
 
-• `{i}autoname`
-   `Starts AUTONAME`.
+• `{i}تفعيل الساعه`
+   `لبدء الساعه.`
 
-• `{i}stopname`
-   `Stops AUTONAME.`
+• `{i}تعطيل الساعه`
+   `لايقاف الساعه.`
 
-• `{i}autobio`
-   `Starts AUTOBIO.`
+• `{i}تفعيل البايو`
+   `لبدء ساعه البايو.`
 
-• `{i}stopbio`
-   `Stops AUTOBIO.`
+• `{i}تعطيل البايو`
+   `لايقاف ساعه البايو.`
 """
 
 import random
@@ -61,15 +61,15 @@ async def autoname_(event):
         
 
 
-@ultroid_cmd(pattern="(auto|stop)bio$")
+@ultroid_cmd(pattern="(تفعيل|تعطيل) البايو$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
-    if match == "stop":
+    if match == "تعطيل":
         udB.del_key("AUTOBIO")
-        await event.eor("`AUTOBIO has been Stopped !`")
+        await event.eor("`• تم تعطيل ساعه البايو ✓`")
         return
     udB.set_key("AUTOBIO", "True")
-    await eod(event, "`Started AUTOBIO`")
+    await eod(event, "`• تم تفعيل ساعه البايو ✓`")
     BIOS = [
         "Busy Today !",
         "ULTROID USER",
@@ -87,7 +87,7 @@ async def autoname_(event):
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
-        name = f"{HM} {RR7PB}"
+        name = f"{RR7PB} {HM} {RR7PP}"
         await event.client(
             UpdateProfileRequest(
                 about=name,
