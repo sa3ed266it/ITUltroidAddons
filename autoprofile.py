@@ -31,21 +31,21 @@ from . import *
 
 CHANGE_TIME = int(udB.get_key("CHANGE_TIME")) if udB.get_key("CHANGE_TIME") else 60
 
-RR7PP = udB.get_key("TI_EM") or "•"
-RR7PB = udB.get_key("BI_EM") or "|"
+RR7PP = udB.get_key("TI_EM") or "|"
+RR7PB = udB.get_key("TI_EMJ") or "|"
 
 normzltext = "0123456789"
 namerzfont = udB.get_key("TI_IT") or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
-@ultroid_cmd(pattern="(auto|stop)name$")
+@ultroid_cmd(pattern="(تفعيل|تعطيل)الساعه$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
-    if match == "stop":
+    if match == "تعطيل":
         udB.del_key("AUTONAME")
-        await event.eor("`AUTONAME has been Stopped !`")
+        await event.eor("• تم تعطيل الساعه ✓")
         return
     udB.set_key("AUTONAME", "True")
-    await eod(event, "`Started AUTONAME`")
+    await eod(event, "• تم تفعيل الساعه ✓")
     while True:
         getn = udB.get_key("AUTONAME")
         if not getn:
@@ -55,7 +55,7 @@ async def autoname_(event):
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
-        name = f"{HM} {RR7PP}"
+        name = f"{RR7PB} {HM} {RR7PP}"
         await event.client(UpdateProfileRequest(first_name=name))
         await asyncio.sleep(CHANGE_TIME)
         
