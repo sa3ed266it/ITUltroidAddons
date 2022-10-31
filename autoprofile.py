@@ -31,8 +31,8 @@ from . import *
 
 CHANGE_TIME = int(udB.get_key("CHANGE_TIME")) if udB.get_key("CHANGE_TIME") else 60
 
-RR7PP = udB.get_key("TI_EM") or "|"
-RR7PB = udB.get_key("TI_EMJ") or "|"
+RR7PP = udB.get_key("TI_EM") or "•"
+RR7PB = udB.get_key("TI_EMJ") or ""
 
 normzltext = "0123456789"
 namerzfont = udB.get_key("TI_IT") or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
