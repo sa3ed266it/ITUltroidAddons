@@ -33,6 +33,7 @@ CHANGE_TIME = int(udB.get_key("CHANGE_TIME")) if udB.get_key("CHANGE_TIME") else
 
 RR7PP = udB.get_key("TI_EM") or "•"
 RR7PB = udB.get_key("TI_EMJ") or ""
+BIO = udB.get_key("TI_BIO")
 
 normzltext = "0123456789"
 namerzfont = udB.get_key("TI_IT") or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
@@ -87,7 +88,7 @@ async def autoname_(event):
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
-        name = f"{RR7PB} {HM} {RR7PP}"
+        name = f"{HM} {RR7PP} {BIO}"
         await event.client(
             UpdateProfileRequest(
                 about=name,
